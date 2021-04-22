@@ -4,7 +4,6 @@
 
 # 接雨水
 
-
 def trap(height):
     stack = []
     res = 0
