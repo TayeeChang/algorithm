@@ -5,7 +5,7 @@
 # 接雨水
 
 
-#单调栈
+#单调栈or单调队列
 def trap(height):
     stack = []
     res = 0
