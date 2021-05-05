@@ -14,7 +14,7 @@ class Solution:
         from collections import defaultdict
         window = defaultdict(int)
         res = 0
-        left = right = 0
+        left = right = 0  # [left, right) 开区间
         while right < len(s):
             c = s[right]
             right += 1
@@ -23,7 +23,7 @@ class Solution:
                 t = s[left]
                 left += 1
                 window[t] -= 1
-            res = max(res, right-left)
+            res = max(res, right-left)  # [left, right) 开区间
         return res
 
 

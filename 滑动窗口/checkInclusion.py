@@ -30,8 +30,9 @@ class Solution:
                 window[c] += 1
                 if window[c] == need[c]:
                     valid += 1
-            while valid == len(need):
-                if right - left == len(s1):
+            while right - left == len(s1):  # 因为是子串，所以这里是 == 号
+                if valid == len(need):
+                    print(left, right)
                     return True
                 c = s2[left]
                 left += 1
