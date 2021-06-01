@@ -12,11 +12,15 @@ class Solution:
         """
 
         i = len(nums)-1
-        while i > 0 and nums[i] <= nums[i-1]:
+        while i > 0 and nums[i-1] >= nums[i]:
             i -= 1
         if i == 0:
-            nums = nums[::-1]
-            return nums
+            m, n = 0, len(nums)-1
+            while m < n:
+                nums[m], nums[n] = nums[n], nums[m]
+                m += 1
+                n -= 1
+            return
         i -= 1
         # 找到第一个大于A[i]的元素
         j = len(nums) - 1
@@ -33,7 +37,7 @@ class Solution:
             m += 1
             n -= 1
 
-        return nums
+        return
 
 
 nums = [3, 2, 1]

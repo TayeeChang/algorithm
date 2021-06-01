@@ -23,6 +23,6 @@ def quickSort(nums, left, right):
     quickSort(nums, low, left - 1)
 
 
-nums = [2, 3, 1, 1, 4]
+nums = [2, 3, 1, 1, 4, 5, 8, 7]
 quickSort(nums, 0, len(nums) - 1)
 print(nums)

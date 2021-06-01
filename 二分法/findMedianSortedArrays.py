@@ -22,11 +22,13 @@ class Solution:
 
         k = (m + n + 1) // 2
         low, high = 0, m
-
-        while low < high:
+        # 中位数需要满足交叉大小对比即 nums1[i] >= nums2[j-1] && nums1[i-1] <= nums2[j]
+        # 为了避免越界讨论情况，我们这里使用 nums1[i] >= nums2[j-1] 进行二分搜索
+        # 需要不断搜索满足 nums1[i] >= nums2[j-1] 条件下的左边界，则左边界一定满足 nums1[i-1] <= nums2[j]
+        while low < high:  # 退出循环时，一定满足 nums1[i] >= nums2[j-1]
             i = low + (high - low) // 2  # 短数组分割线右边第一个数下标
             j = k - i                    # 长数组分割线右边第一个数下标
-            if nums1[i] <= nums2[j-1]:
+            if nums1[i] < nums2[j-1]:    # 不断寻找左边界则一定满足 nums1[i-1] <= nums2[j]
                 low = i + 1
             else:
                 high = i
